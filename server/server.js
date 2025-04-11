@@ -3,7 +3,7 @@ const { connectToMongo } = require('./config/db');  // Import connectToMongo
 const authRouter = require('./routes/blog');  // Import the router containing blog routes
 const cors = require('cors');
 const app = express();
-
+require('dotenv').config();
 // Connect to MongoDB
 connectToMongo();
 
