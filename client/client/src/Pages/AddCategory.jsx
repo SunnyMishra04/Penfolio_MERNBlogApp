@@ -10,7 +10,8 @@ const AddCategory = () => {
     const handleCategory = async (e) => {
         e.preventDefault();
         try {
-            const res = await fetch("http://localhost:3000/api/v1/add/category", {
+            const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/v1/add/category`, {
+                
                 method: "POST",
                 headers: {
                     Authorization:`Bearer ${localStorage.getItem("token")}`,    

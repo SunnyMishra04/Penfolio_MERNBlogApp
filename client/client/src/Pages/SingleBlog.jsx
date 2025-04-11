@@ -10,7 +10,8 @@ const SingleBlog = () => {
   useEffect(() => {
     const fetchSingleBlog = async () => {
       try {
-        const res = await fetch(`http://localhost:3000/api/v1/get/blog/${id}`, {
+        const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/v1/get/blog/${id}`, {
+          method: "GET",
           headers: {
             Authorization: `Bearer ${token}`,
             "Content-Type": "application/json",
@@ -37,9 +38,8 @@ const SingleBlog = () => {
     );
     if (confirmDelete) {
       try {
-        const res = await fetch(
-          `http://localhost:3000/api/v1/delete/blog/${id}`,
-          {
+        const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/v1/delete/blog/${id}`, {
+
             method: "DELETE",
             headers: {
               Authorization: `Bearer ${token}`,
@@ -68,11 +68,12 @@ const SingleBlog = () => {
             <div className="col-md-12 d-flex flex-column align-items-center bg-light p-4">
               <h1 className="my-3">{blog.title}</h1>
               <img
-                src={`http://localhost:3000/${blog.thumbnail}`}
-                className="img-fluid img-rounded my-3"
-                alt={blog.title || "Blog thumbnail"}
-                style={{ maxHeight: "400px", objectFit: "cover" }}
-              />
+  src={`${import.meta.env.VITE_API_BASE_URL}/${blog.thumbnail}`}
+  className="img-fluid img-rounded my-3"
+  alt={blog.title || "Blog thumbnail"}
+  style={{ maxHeight: "400px", objectFit: "cover" }}
+/>
+
               <p className="my-3">{blog.description}</p>
               <p className="card-category">
                 <strong>Category:</strong> {blog.categoryTitle}
