@@ -16,7 +16,7 @@ app.get("/", (req, res) => {
   res.send("Server is running...");
 });
 
-// Use the blog router for all API routes
+// Uses: the blog router for all API routes
 app.use("/api/v1", authRouter); 
 
 const PORT = process.env.PORT || 3000;
